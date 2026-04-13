@@ -9,8 +9,8 @@ class Knight:
         self.apply_weapon(knight_data.get("weapon", {}))
         self.apply_potion(knight_data.get("potion"))
 
-    def apply_armour(self, armour: list) -> None:
-        for armour in armour:
+    def apply_armour(self, armour_list: list) -> None:
+        for armour in armour_list:
             self.protection += armour.get("protection", 0)
 
     def apply_weapon(self, weapon: dict) -> None:
