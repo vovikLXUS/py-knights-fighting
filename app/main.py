@@ -1,4 +1,3 @@
-from app.models.knight import Knight
 from app.utils.combat import fight
 from app.utils.helper import build_knights
 
@@ -18,8 +17,7 @@ def battle(knights_config: dict) -> dict:
 
 
 if __name__ == "__main__":
-    battle(
-    {
+    battle({
         "lancelot": {
             "name": "Lancelot",
             "power": 35,
