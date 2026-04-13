@@ -1,25 +1,24 @@
 from app.models.knight import Knight
 from app.utils.combat import fight
+from app.utils.helper import build_knights
 
 
 def battle(knights_config: dict) -> dict:
-    lancelot = Knight(knights_config["lancelot"])
-    arthur = Knight(knights_config["arthur"])
-    mordred = Knight(knights_config["mordred"])
-    red_knight = Knight(knights_config["red_knight"])
+    knights = build_knights(knights_config)
 
-    fight(lancelot, mordred)
-    fight(arthur, red_knight)
+    fight(knights["lancelot"], knights["mordred"])
+    fight(knights["arthur"], knights["red_knight"])
 
     return {
-        lancelot.name: lancelot.hp,
-        arthur.name: arthur.hp,
-        mordred.name: mordred.hp,
-        red_knight.name: red_knight.hp
+        knights["lancelot"].name: knights["lancelot"].hp,
+        knights["arthur"].name: knights["arthur"].hp,
+        knights["mordred"].name: knights["mordred"].hp,
+        knights["red_knight"].name: knights["red_knight"].hp
     }
 
 
-battle(
+if __name__ == "__main__":
+    battle(
     {
         "lancelot": {
             "name": "Lancelot",
@@ -103,4 +102,4 @@ battle(
             },
         },
     }
-)
+    )
